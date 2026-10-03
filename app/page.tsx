@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   ArrowRight,
   CircuitBoard,
@@ -40,9 +41,10 @@ const features = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#F7F7FB] text-[#18181B]">
+
       {/* Navigation */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#7C3AED] text-white shadow-sm">
             <CircuitBoard size={22} />
           </div>
@@ -50,15 +52,19 @@ export default function Home() {
           <span className="text-xl font-bold tracking-tight">
             Circuit<span className="text-[#7C3AED]">Craft</span>
           </span>
-        </div>
+        </Link>
 
-        <button className="rounded-xl border border-[#E4E4E7] bg-white px-5 py-2.5 text-sm font-medium transition hover:border-[#C4B5FD] hover:bg-[#FAF9FF]">
+        <Link
+          href="/auth"
+          className="rounded-xl border border-[#E4E4E7] bg-white px-5 py-2.5 text-sm font-medium transition hover:border-[#C4B5FD] hover:bg-[#FAF9FF]"
+        >
           Sign In
-        </button>
+        </Link>
       </nav>
 
       {/* Hero */}
       <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 pb-24 pt-16 lg:grid-cols-2 lg:px-10 lg:pt-24">
+
         <div>
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -100,17 +106,24 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-9 flex flex-wrap gap-4"
           >
-            <button className="group flex items-center gap-3 rounded-xl bg-[#7C3AED] px-6 py-3.5 font-semibold text-white shadow-lg shadow-purple-200 transition hover:bg-[#6D28D9]">
+            <Link
+              href="/auth"
+              className="group flex items-center gap-3 rounded-xl bg-[#7C3AED] px-6 py-3.5 font-semibold text-white shadow-lg shadow-purple-200 transition hover:bg-[#6D28D9]"
+            >
               Start Building
+
               <ArrowRight
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
               />
-            </button>
+            </Link>
 
-            <button className="rounded-xl border border-[#E4E4E7] bg-white px-6 py-3.5 font-semibold transition hover:border-[#C4B5FD] hover:bg-[#FAF9FF]">
+            <a
+              href="#features"
+              className="rounded-xl border border-[#E4E4E7] bg-white px-6 py-3.5 font-semibold transition hover:border-[#C4B5FD] hover:bg-[#FAF9FF]"
+            >
               Explore
-            </button>
+            </a>
           </motion.div>
         </div>
 
@@ -122,10 +135,16 @@ export default function Home() {
           className="relative"
         >
           <div className="overflow-hidden rounded-3xl border border-[#E4E4E7] bg-white shadow-xl shadow-purple-100/50">
+
             <div className="flex items-center justify-between border-b border-[#E4E4E7] px-5 py-4">
               <div>
-                <p className="text-sm font-semibold">My First Circuit</p>
-                <p className="text-xs text-[#A1A1AA]">Live simulation</p>
+                <p className="text-sm font-semibold">
+                  My First Circuit
+                </p>
+
+                <p className="text-xs text-[#A1A1AA]">
+                  Live simulation
+                </p>
               </div>
 
               <div className="flex gap-1.5">
@@ -143,11 +162,13 @@ export default function Home() {
                 backgroundSize: "22px 22px",
               }}
             >
+
               {/* Input A */}
               <div className="absolute left-8 top-24 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#DDD6FE] bg-[#EDE9FE] font-bold text-[#7C3AED]">
                   A
                 </div>
+
                 <div className="h-px w-20 bg-[#64748B]" />
               </div>
 
@@ -156,6 +177,7 @@ export default function Home() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#DDD6FE] bg-[#EDE9FE] font-bold text-[#7C3AED]">
                   B
                 </div>
+
                 <div className="h-px w-20 bg-[#64748B]" />
               </div>
 
@@ -180,6 +202,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center justify-between border-t border-[#E4E4E7] px-5 py-4">
+
               <span className="text-xs text-[#71717A]">
                 3 components · 2 connections
               </span>
@@ -188,15 +211,21 @@ export default function Home() {
                 <span className="h-2 w-2 rounded-full bg-[#16A34A]" />
                 Simulation running
               </span>
+
             </div>
           </div>
         </motion.div>
       </section>
 
       {/* Features */}
-      <section className="border-t border-[#E4E4E7] bg-white">
+      <section
+        id="features"
+        className="border-t border-[#E4E4E7] bg-white"
+      >
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+
           <div className="mb-12 max-w-2xl">
+
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#7C3AED]">
               Made for experimentation
             </p>
@@ -209,9 +238,11 @@ export default function Home() {
               CircuitCraft gives every student their own space to build,
               experiment, save, and understand digital circuits.
             </p>
+
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
             {features.map((feature, index) => {
               const Icon = feature.icon;
 
@@ -228,7 +259,9 @@ export default function Home() {
                     <Icon size={21} />
                   </div>
 
-                  <h3 className="font-semibold">{feature.title}</h3>
+                  <h3 className="font-semibold">
+                    {feature.title}
+                  </h3>
 
                   <p className="mt-2 text-sm leading-6 text-[#71717A]">
                     {feature.description}
@@ -236,6 +269,7 @@ export default function Home() {
                 </motion.div>
               );
             })}
+
           </div>
         </div>
       </section>
@@ -243,13 +277,18 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-[#E4E4E7] bg-[#F7F7FB]">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-[#71717A] sm:flex-row sm:items-center sm:justify-between lg:px-10">
+
           <p>
             © {new Date().getFullYear()} CircuitCraft
           </p>
 
-          <p>Build. Simulate. Explore.</p>
+          <p>
+            Build. Simulate. Explore.
+          </p>
+
         </div>
       </footer>
+
     </main>
   );
 }
